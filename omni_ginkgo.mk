@@ -39,3 +39,7 @@ PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
     ro.build.product \
     ro.bootimage.build.date.utc \
     ro.build.date.utc
+
+# Properties for decryption
+    ro.hardware.keystore=trinket \
+    ro.hardware.gatekeeper=trinket

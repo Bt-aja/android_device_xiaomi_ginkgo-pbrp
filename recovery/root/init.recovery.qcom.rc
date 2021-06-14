@@ -42,7 +42,6 @@ on init
     symlink /sbin/busybox /system/bin/sh
     symlink /vendor/manifest.xml /system/manifest.xml
 
-    start hwservicemanager
     setprop crypto.ready 1
 
 # Separate copy needed to use /sbin/linker64 instead of /system/bin/linker64
@@ -98,12 +97,14 @@ on property:crypto.ready=0
     stop sbinqseecomd
     stop keymaster-4-0
     stop gatekeeper-1-0
+    stop hwservicemanager
     stop servicemanager
 
 on property:crypto.ready=1
     start sbinqseecomd
 
 on property:vendor.sys.listeners.registered=true
+    start hwservicemanager
     start keymaster-4-0
     start gatekeeper-1-0
     start servicemanager
